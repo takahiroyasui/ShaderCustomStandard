@@ -1,6 +1,6 @@
 // Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
 
-Shader "Standard"
+Shader "StandardCustom"
 {
     Properties
     {
@@ -90,7 +90,7 @@ Shader "Standard"
 
             #pragma vertex vertBase
             #pragma fragment fragBase
-            #include "UnityStandardCoreForward.cginc"
+            #include "UnityStandardCoreForwardCustom.cginc"
 
             ENDCG
         }
@@ -126,7 +126,7 @@ Shader "Standard"
 
             #pragma vertex vertAdd
             #pragma fragment fragAdd
-            #include "UnityStandardCoreForward.cginc"
+            #include "UnityStandardCoreForwardCustom.cginc"
 
             ENDCG
         }
@@ -191,7 +191,7 @@ Shader "Standard"
             #pragma vertex vertDeferred
             #pragma fragment fragDeferred
 
-            #include "UnityStandardCore.cginc"
+            #include "UnityStandardCoreCustom.cginc"
 
             ENDCG
         }
@@ -256,7 +256,7 @@ Shader "Standard"
 
             #pragma vertex vertBase
             #pragma fragment fragBase
-            #include "UnityStandardCoreForward.cginc"
+            #include "UnityStandardCoreForwardCustom.cginc"
 
             ENDCG
         }
@@ -288,7 +288,7 @@ Shader "Standard"
 
             #pragma vertex vertAdd
             #pragma fragment fragAdd
-            #include "UnityStandardCoreForward.cginc"
+            #include "UnityStandardCoreForwardCustom.cginc"
 
             ENDCG
         }
