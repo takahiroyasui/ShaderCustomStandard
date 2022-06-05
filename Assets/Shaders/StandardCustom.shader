@@ -45,6 +45,8 @@ Shader "StandardCustom"
         [HideInInspector] _SrcBlend ("__src", Float) = 1.0
         [HideInInspector] _DstBlend ("__dst", Float) = 0.0
         [HideInInspector] _ZWrite ("__zw", Float) = 1.0
+
+        _Brightness("Brightness", Range(0.0, 1.0)) = 1.0
     }
 
     CGINCLUDE
@@ -344,5 +346,5 @@ Shader "StandardCustom"
 
 
     FallBack "VertexLit"
-    CustomEditor "StandardShaderGUI"
+    CustomEditor "StandardShaderGUICustom"
 }

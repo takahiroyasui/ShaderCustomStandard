@@ -425,6 +425,8 @@ VertexOutputForwardBase vertForwardBase (VertexInput v)
     return o;
 }
 
+float _Brightness;
+
 half4 fragForwardBaseInternal (VertexOutputForwardBase i)
 {
     UNITY_APPLY_DITHER_CROSSFADE(i.pos.xy);
@@ -443,8 +445,8 @@ half4 fragForwardBaseInternal (VertexOutputForwardBase i)
     half4 c = UNITY_BRDF_PBS (s.diffColor, s.specColor, s.oneMinusReflectivity, s.smoothness, s.normalWorld, -s.eyeVec, gi.light, gi.indirect);
     c.rgb += Emission(i.tex.xy);
 
-    c.rgb = Luminance(c.rgb).xxx;
-    
+    c.rgb = Luminance(c.rgb).xxx * _Brightness;// モノクロ化
+
     UNITY_EXTRACT_FOG_FROM_EYE_VEC(i);
     UNITY_APPLY_FOG(_unity_fogCoord, c.rgb);
     return OutputForward (c, s.alpha);

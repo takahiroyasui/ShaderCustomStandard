@@ -55,6 +55,7 @@ namespace UnityEditor
             public static string renderingMode = "Rendering Mode";
             public static string advancedText = "Advanced Options";
             public static readonly string[] blendNames = Enum.GetNames(typeof(BlendMode));
+            public static string brightnessText = "Brightness";
         }
 
         MaterialProperty blendMode = null;
@@ -83,6 +84,7 @@ namespace UnityEditor
         MaterialProperty detailNormalMapScale = null;
         MaterialProperty detailNormalMap = null;
         MaterialProperty uvSetSecondary = null;
+        MaterialProperty brightness;
 
         MaterialEditor m_MaterialEditor;
         WorkflowMode m_WorkflowMode = WorkflowMode.Specular;
@@ -126,6 +128,7 @@ namespace UnityEditor
             detailNormalMapScale = FindProperty("_DetailNormalMapScale", props);
             detailNormalMap = FindProperty("_DetailNormalMap", props);
             uvSetSecondary = FindProperty("_UVSec", props);
+            brightness = FindProperty("_Brightness", props);
         }
 
         public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] props)
@@ -176,6 +179,8 @@ namespace UnityEditor
                     m_MaterialEditor.ShaderProperty(highlights, Styles.highlightsText);
                 if (reflections != null)
                     m_MaterialEditor.ShaderProperty(reflections, Styles.reflectionsText);
+                
+                m_MaterialEditor.ShaderProperty(brightness, Styles.brightnessText);
 
                 EditorGUILayout.Space();
 
